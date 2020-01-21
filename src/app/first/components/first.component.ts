@@ -7,11 +7,11 @@ import { Component } from '@angular/core';
 })
 export class FirstComponent {
 
-  public name: string;
-  public description: string;
-  public price: number;
-  public category = ['books', 'beauty', 'auto'];
-  public isAvailable: boolean;
+  name: string;
+  description: string;
+  price: number;
+  category = ['books', 'beauty', 'auto'];
+  isAvailable: boolean;
 
   constructor() { }
 

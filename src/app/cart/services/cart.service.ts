@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../data/products';
+import { Product } from '../../../data/products';
 
 let cartProducts: Product[] = [];
 
