@@ -3,13 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FirstComponent } from './first/first.component';
-import { ProductComponent } from './product/product.component';
-import { ProductListComponent } from './product-list/product-list.component';
-
-import { ProductsService } from './products.service';
-import { CartService } from './cart.service';
-import { CartComponent } from './cart/cart.component';
+import { FirstComponent } from './first/components/first.component';
+import { ProductComponent } from './product/components/product/product.component';
+import { ProductListComponent } from './product/components/product-list/product-list.component';
+import { ProductsService } from './product/services/products.service';
+import { CartService } from './cart/services/cart.service';
+import { CartComponent } from './cart/components/cart/cart.component';
 
 @NgModule({
   declarations: [

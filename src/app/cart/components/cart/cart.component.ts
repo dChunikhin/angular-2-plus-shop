@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../data/products';
-import { CartService } from '../cart.service';
+import { Product } from '../../../../data/products';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -8,8 +8,8 @@ import { CartService } from '../cart.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  public products: Product[];
-  public isEmpty: boolean;
+  products: Product[];
+  isEmpty: boolean;
 
   constructor(private cartService: CartService) { }
 
@@ -18,7 +18,7 @@ export class CartComponent implements OnInit {
     this.isEmpty = !this.products.length;
   }
 
-  public onSell(id) {
+  onSell(id) {
     this.cartService.sellProduct(id);
     this.products = this.cartService.getCartProducts();
   }
