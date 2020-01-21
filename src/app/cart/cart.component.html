@@ -1,0 +1,7 @@
+<ul *ngIf="products.length else emptyList" class="cart-list">
+  <li *ngFor="let product of products">{{product.name}} <button (click)="onSell(product.id)">Sell</button> </li>
+</ul>
+
+<ng-template #emptyList>
+  <h4>Cart is empty currently.</h4>
+</ng-template>
