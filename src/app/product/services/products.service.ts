@@ -12,7 +12,7 @@ export class ProductsService {
     return products;
   }
 
-  getProductById(id) {
+  getProductById(id: number): Product | undefined {
     return products.find(product => product.id === +id);
   }
 
