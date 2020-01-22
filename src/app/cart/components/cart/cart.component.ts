@@ -18,7 +18,7 @@ export class CartComponent implements OnInit {
     this.isEmpty = !this.products.length;
   }
 
-  onSell(id) {
+  onSell(id: number): void {
     this.cartService.sellProduct(id);
     this.products = this.cartService.getCartProducts();
   }

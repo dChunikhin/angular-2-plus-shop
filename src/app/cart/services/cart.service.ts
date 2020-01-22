@@ -14,12 +14,12 @@ export class CartService {
     return cartProducts;
   }
 
-  buyProduct(product) {
+  buyProduct(product: Product): Product {
     cartProducts.push(product);
     return product;
   }
 
-  sellProduct(id) {
+  sellProduct(id: number): Product[] {
     cartProducts = cartProducts.filter(product => product.id !== +id);
     return this.getCartProducts();
   }

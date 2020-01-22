@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { FirstComponent } from './first/components/first.component';
 import { ProductComponent } from './product/components/product/product.component';
 import { ProductListComponent } from './product/components/product-list/product-list.component';
-import { ProductsService } from './product/services/products.service';
-import { CartService } from './cart/services/cart.service';
+// import { ProductsService } from './product/services/products.service';
+// import { CartService } from './cart/services/cart.service';
 import { CartComponent } from './cart/components/cart/cart.component';
 
 @NgModule({
@@ -22,7 +22,8 @@ import { CartComponent } from './cart/components/cart/cart.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [ProductsService, CartService],
+  // не нужно добавлять тут сервисы
+  // providers: [ProductsService, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
