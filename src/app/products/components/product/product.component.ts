@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { CartService } from '../../../cart/services/cart.service';
 import { Product } from '../../../../data/products';
 
 @Component({
@@ -11,10 +10,10 @@ export class ProductComponent {
 
   @Input() product: Product;
 
-  constructor(private cartService: CartService) { }
+  constructor() { }
 
-  onBuy() {
-    this.cartService.buyProduct(this.product);
-  }
+  // onBuy() {
+  //   this.cartService.buyProduct(this.product);
+  // }
 
 }

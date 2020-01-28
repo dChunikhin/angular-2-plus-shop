@@ -16,4 +16,12 @@ export class ProductsService {
     return products.find(product => product.id === +id);
   }
 
+  addToBasket() {
+    // implementation of adding
+  }
+
+  removeFromBasket(id: string) {
+    // implementation of removing
+  }
+
 }

@@ -1,0 +1,10 @@
+<ul class="cart-list" *ngIf="products.length else emptyList">
+  <li class="cart-list__item" *ngFor="let product of products">
+    <app-cart-item [product]="product" (remove)="onRemove(product)"></app-cart-item>
+  </li>
+</ul>
+
+<ng-template #emptyList>
+  <h4>You have no product in the cart</h4>
+</ng-template>
+
