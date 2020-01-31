@@ -1,4 +1,8 @@
-<div class="cart-item">
-  <div class="cart-item__name">{{ product.name }}</div>
-  <div class="cart-item__button" (click)="onRemove()">Remove</div>
+<div class="cart-item" >
+  <button class="cart-item__button" (click)="onRemove()">Remove</button>
+  <span class="cart-item__stock-count" (click)="enableEditorMode()" *ngIf="!editorMode else editor"> {{ product.stockCount }} </span>
+  <span class="cart-item__name">{{ product.name }}</span>
+  <ng-template #editor>
+    <input (blur)="onBlur($event)" class="cart-item__input" type="number" [value]="product.stockCount" >
+  </ng-template>
 </div>

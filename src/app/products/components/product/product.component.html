@@ -1,3 +1,4 @@
 <div class="product">
-  <button class="product__button" (click)="onBuy()" >Buy</button><span class="product__name">{{ product.name }}</span>
+  <button class="product__button" [disabled]="isOutOfStock" (click)="onBuy()">Buy</button>
+  <span class="product__stock-count"> {{ product.stockCount }}</span><span class="product__name"> {{ product.name }}</span>
 </div>
