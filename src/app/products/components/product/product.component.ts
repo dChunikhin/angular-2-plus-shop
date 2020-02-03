@@ -9,7 +9,7 @@ import { Product } from '../../../../data/products';
 })
 export class ProductComponent implements OnChanges {
 
-  private isOutOfStock: boolean;
+  private isOutOfStock: boolean; // то, что используется в шаблоне, должно быть публичным
 
   @Input() product: Product;
   @Output() buy = new EventEmitter<Product>();
