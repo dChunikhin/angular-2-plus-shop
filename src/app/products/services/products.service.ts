@@ -6,6 +6,7 @@ import { products, Product } from '../../../data/products';
 })
 export class ProductsService {
   private products: Product[] = products;
+
   getProducts(): Product[] {
     return this.products;
   }

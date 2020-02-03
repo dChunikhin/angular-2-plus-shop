@@ -26,7 +26,7 @@ export class CartService {
       totalPrice: this.totalPrice
     };
   }
-  addToCart(product /* почему без типа? */, amount: number = 1): void {
+  addToCart(product: Product, amount: number = 1): void {
     const cartProduct = this.getCartProductById(product.id);
     let products: Product[];
 
@@ -45,7 +45,7 @@ export class CartService {
 
     this.refreshCartProducts(products);
   }
-  removeFromCart(product, amount: number = 1): void {
+  removeFromCart(product: Product, amount: number = 1): void {
     const products: Product[] = this.cartProducts
       .map(prod => prod.id === product.id ? { ...prod, stockCount: prod.stockCount - amount } : prod)
       .filter(prod => prod.stockCount > 0);

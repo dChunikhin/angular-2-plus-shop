@@ -8,7 +8,7 @@ import { Product } from '../../../../data/products';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-// Очень тяжело читать без пустых строк
+
 export class ProductListComponent implements OnInit {
   products: Product[];
 
