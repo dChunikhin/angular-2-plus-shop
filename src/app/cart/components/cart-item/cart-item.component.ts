@@ -10,10 +10,8 @@ import { Product } from '../../../../data/products';
 export class CartItemComponent {
 
   @Input() product: Product;
-  @Output() remove: EventEmitter<Product> = new EventEmitter();
+  @Output() remove = new EventEmitter();
   @Output() amountChange = new EventEmitter();
-
-  public editorMode = false;
 
   constructor() { }
 
@@ -21,13 +19,12 @@ export class CartItemComponent {
     this.remove.emit(this.product);
   }
 
-  enableEditorMode() {
-    this.editorMode = true;
+  onIncreaseCount() {
+    this.amountChange.emit( { product: this.product, operation: 'increase' });
   }
 
-  onBlur({ target }) {
-    this.editorMode = false;
-    this.amountChange.emit( { product: this.product, amount: +target.value });
+  onDecreaseCount() {
+    this.amountChange.emit( { product: this.product, operation: 'decrease' });
   }
 
 }

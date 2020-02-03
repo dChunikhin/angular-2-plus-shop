@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
-import { ProductsService } from '../../../products/services/products.service';
 import { Product } from '../../../../data/products';
 import { Subscription } from 'rxjs';
 
@@ -15,34 +14,31 @@ export class CartListComponent implements OnInit {
   cartProductsTotalAmount = 0;
   cartProductsTotalPrice = 0;
 
-  constructor(private cartService: CartService, private productsService: ProductsService) { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit() {
-    this.cartProducts = this.cartService.getCartProducts();
-    this.sub = this.cartService.channel$.subscribe(data => {
-      this.cartProductsTotalAmount = this.cartService.getTotalAmount(data);
-      this.cartProductsTotalPrice = this.cartService.getTotalPrice(data);
-      this.cartProducts = data;
+    this.cartProducts = this.cartService.getCart().products;
+    this.sub = this.cartService.cartChanges$.subscribe(cart => {
+      this.cartProductsTotalAmount = cart.count;
+      this.cartProductsTotalPrice = cart.totalPrice;
+      this.cartProducts = cart.products;
     });
   }
 
   onRemove(product: Product): void {
-    this.cartService.removeFromCart(product);
-    this.productsService.returnProduct(product);
+    this.cartService.removeFromCart(product, product.stockCount);
   }
 
-  changeAmount({ product, amount }): void {
-    // const cartProduct = this.cartProducts.find(prod => prod.id === product.id);
-    // const inStock = cartProduct.stockCount;
-
-    // if (amount > inStock) {
-    //   this.productsService.buyProduct(product, amount - inStock);
-    //   this.cartService.addToCart(product, amount - inStock);
-    // } else {
-    //   this.productsService.returnProduct(product, inStock - amount);
-    //   this.cartService.removeFromCart(product, inStock - amount);
-    // }
-
+  changeAmount({ product, operation }): void {
+    switch (operation) {
+      case 'increase':
+        this.cartService.addToCart(product);
+        break;
+      case 'decrease':
+        this.cartService.removeFromCart(product);
+        break;
+      default:
+        break;
+    }
   }
-
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import { Product } from '../../../../data/products';
 
 @Component({
@@ -7,7 +7,7 @@ import { Product } from '../../../../data/products';
   styleUrls: ['./product.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent implements OnChanges {
 
   private isOutOfStock: boolean;
 
@@ -16,13 +16,12 @@ export class ProductComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnChanges() {
     this.isOutOfStock = this.product.stockCount === 0;
   }
 
-  onBuy(): void {
+  onClick(): void {
     this.buy.emit(this.product);
   }
-
 
 }
