@@ -26,7 +26,7 @@ export class CartService {
       totalPrice: this.totalPrice
     };
   }
-  addToCart(product, amount: number = 1): void {
+  addToCart(product /* почему без типа? */, amount: number = 1): void {
     const cartProduct = this.getCartProductById(product.id);
     let products: Product[];
 
