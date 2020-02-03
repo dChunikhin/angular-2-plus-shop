@@ -1,0 +1,17 @@
+<div class="cart-container">
+  <ul class="cart-list" *ngIf="cartProducts.length else emptyList">
+    <li class="cart-list__item" *ngFor="let product of cartProducts">
+      <app-cart-item appHighlight [product]="product" (remove)="onRemove(product)" (amountChange)="changeAmount($event)"></app-cart-item>
+    </li>
+  </ul>
+  <div class="cart-list__info cart-info">
+    <h4 class="cart-info__total-price">Total price: {{ cartProductsTotalPrice }}</h4>
+    <h4 class="cart-info__total-price">Amount: {{ cartProductsTotalAmount }}</h4>
+  </div>
+  <ng-template #emptyList>
+    <h4>Cart is empty</h4>
+  </ng-template>
+</div>
+
+
+

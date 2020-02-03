@@ -1,0 +1,7 @@
+<div class="cart-item" >
+  <button class="cart-item__button" (click)="onRemove()">Remove</button>
+  <button class="cart-item__button" (click)="onIncreaseCount()">+1</button>
+  <button class="cart-item__button" (click)="onDecreaseCount()">-1</button>
+  <span class="cart-item__stock-count"> {{ product.stockCount }} </span>
+  <span class="cart-item__name">{{ product.name }}</span>
+</div>

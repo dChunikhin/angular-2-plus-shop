@@ -5,15 +5,8 @@ import { products, Product } from '../../../data/products';
   providedIn: 'root'
 })
 export class ProductsService {
-
-  constructor() { }
-
+  private products: Product[] = products;
   getProducts(): Product[] {
-    return products;
+    return this.products;
   }
-
-  getProductById(id: number): Product | undefined {
-    return products.find(product => product.id === +id);
-  }
-
 }
